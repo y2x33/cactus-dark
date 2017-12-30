@@ -16,8 +16,31 @@
   padding: 0
   .post-item
     list-style-type: none
-    margin-left: 0
-    margin-bottom: 1rem
+    .post-item-info
+      font-size: 0.9em
+    .post-item-excerpt
+      //padding: 0 0 0 15px
+      //border-left: 5px double $color-accent
+    .post-item-title
+      color: $color-accent
+      font-weight: 700
+      letter-spacing: 0.01em
+      font-size: 1.5em
+      background: none
+      display: inline-block
+      margin: 2em 0 0
+      &:hover
+        color: $color-link
+    .post-item-read-more
+      display: block
+      text-align: center
+      text-decoration: none
+      background: none
+      padding: 5px 10px
+      border: 1px dashed #4e947b
+      margin: 1em 0;
+      &:hover
+        background: #d6e4df
     .meta
       display: block
       font-size: 14px
@@ -28,13 +51,6 @@
 @media (min-width: 480px)
   .post-list
     .post-item
-      display: flex
-      margin-bottom: 5px
+      // margin-bottom: 5px
       .meta
         text-align: left
-
-.project-list
-  padding: 0
-  list-style: none
-  .project-item
-    margin-bottom: 5px

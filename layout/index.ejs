@@ -15,7 +15,6 @@
 </section>
 
 <section id="writing">
-  <span class="h1"><a href="<%- url_for("archives") %>">Writing</a></span>
   <ul class="post-list">
     <% if (theme.customize.show_all_posts) { %>
       <% var show_posts = page.posts.sort('date', 'desc') %>
@@ -24,8 +23,17 @@
     <% } %>
     <% show_posts.each(function(post, i){ %>
       <li class="post-item">
-        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+        <a class="post-item-title" href="<%- url_for(post.path) %>" target="_blank" itemprop="url">
+            <i class="fa fa-tree" aria-hidden="true"></i> <%- post.title %>
+        </a>
+        <div class="post-item-info">
+            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+                <i class="fa fa-calendar" aria-hidden="true"></i> <%= date(post.date, config.date_format) %>
+            </time>
+            <span><%- partial('_partial/post/tag',{page: post}) %></span>
+        </div>
+        <div class="post-item-excerpt"><%- post.excerpt %></div>
+        <a class="post-item-read-more" href="<%- url_for(post.path) %>" target="_blank" itemprop="url">阅读更多</a>
       </li>
     <% }); %>
   </ul>
@@ -33,16 +41,3 @@
     <%- partial('_partial/pagination') %>
   <% } %>
 </section>
-
-<% if (site.data.projects) { %>
-<section id="projects">
-  <span class="h1"><a href="<%- url_for(theme.projects_url) %>">Projects</a></span>
-  <ul class="project-list">
-    <% for(var obj in site.data.projects){ %>
-      <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%= site.data.projects[obj].desc %>
-      </li>
-    <% } %>
-  </ul>
-</section>
-<% } %>
