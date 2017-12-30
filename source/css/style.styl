@@ -42,10 +42,11 @@ body
 
   a
     text-decoration: none
-    color: $color-text
+    color: $color-link-text
     underline(5px, $color-text)
     &:hover
       background-image: linear-gradient(transparent, transparent 4px, $color-link 4px, $color-link)
+
 
   a.icon
     background: none
@@ -71,6 +72,18 @@ body
   h5 a:hover,
   h6 a:hover
     underline(6px, $color-link)
+
+::selection  
+  background: #d480aa
+  color: #f9f9f9
+
+-moz-selection  
+  background: #d480aa
+  color: #f9f9f9
+
+::-webkit-selection     
+  background: #d480aa
+  color: #f9f9f9
 
 @media (min-width: 540px)
   .image-wrap
@@ -125,8 +138,8 @@ pre
 code
   -webkit-border-radius: 2px
   border-radius: 2px
-  border: 1px dotted #666
   padding: 0 5px
+  background: #d7e6e1
 pre code
   border: none
   display: block
@@ -134,8 +147,8 @@ pre code
 
 .highlight
   font-family: $font-family-mono;
-  background: #1a352c // lighten($color-background, 2%)
-  // color: $color-light
+  background: #eee // lighten($color-background, 2%)
+  color: #666
   -webkit-border-radius: 4px
   border-radius: 4px
   padding: 10px 15px
@@ -159,6 +172,8 @@ pre code
     background: none
   table
     width: auto
+  table td
+    border: none
   td.gutter
     text-align: right
   .line
