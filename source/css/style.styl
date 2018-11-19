@@ -150,13 +150,13 @@ pre code
 
 .highlight
   font-family: $font-family-mono;
-  background: #eee // lighten($color-background, 2%)
+  background: darken($color-background, 3%)
   color: #666
   -webkit-border-radius: 4px
   border-radius: 4px
   padding: 10px 15px
   overflow-x: auto
-  margin: 1rem 0 1rem 0
+  margin: 1rem 0 1rem -1rem
   figcaption
     zoom: 1
     margin: -5px 0 5px
@@ -164,7 +164,7 @@ pre code
     color: #999
     a
       float: right
-    &:before,
+    &:before
       content: ""
       display: table
     &:after
@@ -179,6 +179,7 @@ pre code
     border: none
   td.gutter
     text-align: right
+    color: darken($color-background, 20%)
   .line
   	height: 22px
 

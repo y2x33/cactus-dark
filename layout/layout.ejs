@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html<%= config.language ? " lang=" + config.language.substring(0, 2) : ""%>>
 <%- partial('_partial/head') %>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+</head>
 <body>
     <% if (is_post()) { %>
       <%- partial('_partial/post/actions_desktop') %>
